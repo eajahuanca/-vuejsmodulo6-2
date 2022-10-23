@@ -1,120 +1,52 @@
 <template>
-	<nav class="navbar navbar-expand-lg " style="background-color: gray;">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">TituloPagina</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#">menu1</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">menu2</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
 	<div class="container">
-
 		<div class="row">
-			<h3>S6S Mini GPS Drones</h3>
+			<h3>MegaDron</h3>
 		</div>
 		<div class="row">
 			<div class="col-12 col-sm-6 col-md-4 ">
-				<img src="https://ae01.alicdn.com/kf/S00eb0e55c14f47e2bbf828a92ecd5515U/S6S-Mini-GPS-Drones-150g-Drone-4K-Profesional-HD-Dual-Camera-5G-WIFI-FPV-Brushless-Folding.jpg_Q90.jpg_.webp"
-					alt="" width="100%">
+				imagen
 			</div>
 			<div class="col-12 col-sm-6  col-md-8">
-				<h6>S6S Mini GPS Drones 150g Drone 4K Profesional HD Dual Camera 5G WIFI FPV Brushless Folding
-					Quadcopter RC Dron Helicopter Toys</h6>
-				<div class="p-3 mb-2 text-white" style="background-color: gray;">
-					Precio: 350 BOB
+				<h6>descripcion Producto</h6>
+				<div class="p-3 mb-2 text-white">
+					0.00 Bs.
 				</div>
 				<h5>Color</h5>
 				<div>
-					<div class="color-box clic" style="background: red"></div>
 					<div class="color-box clic" style="background: blue"></div>
 					<div class="color-box clic" style="background: black"></div>
 				</div>
 				<h5>Cantidad</h5>
 				<div class="quantity">
-					<button>-</button>
-					<div>1</div> <button>+</button>
+					<button @click="disminuir">-</button>
+					<div>{{contador}}</div> <button @click="aumentar">+</button>
 				</div>
 				<div class="buy-box">
-					<button type="button" class="btn btn-primary">Comprar</button>
+					<button type="button" class="btn btn-primary" :disabled="changeStyle"
+						@click="pedir">Comprar</button>
 				</div>
 
 			</div>
 		</div>
 	</div>
 
-
-
 	<div class="container ">
-
 		<div class="row">
 			<h4>Productos relacionados</h4>
 		</div>
 		<div class="row">
-			<div class="col">
+			<div class="col" v-for="producto in products" :key="producto">
 				<div class="card" style="width: 18rem;">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<img src="https://ae01.alicdn.com/kf/S00eb0e55c14f47e2bbf828a92ecd5515U/S6S-Mini-GPS-Drones-150g-Drone-4K-Profesional-HD-Dual-Camera-5G-WIFI-FPV-Brushless-Folding.jpg_Q90.jpg_.webp"
-							alt="" width="100%">
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of
-							the card's content.</p>
-						<div class="producto-relacionado-precio">Precio:1000 BOB</div>
+						<h5 class="card-title">{{producto.nombre}}</h5>
+						<img :src="producto.imagen" :alt="producto.nombre" width="200">
+						<p class="card-text">{{producto.descripcion}}</p>
+						<div class="producto-relacionado-precio">Precio:{{producto.precio}} BOB</div>
 						<div>
 							<div>
-								<div class="color-box" style="background: red"></div>
-								<div class="color-box" style="background: blue"></div>
-								<div class="color-box" style="background: black"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<img src="https://ae01.alicdn.com/kf/S00eb0e55c14f47e2bbf828a92ecd5515U/S6S-Mini-GPS-Drones-150g-Drone-4K-Profesional-HD-Dual-Camera-5G-WIFI-FPV-Brushless-Folding.jpg_Q90.jpg_.webp"
-							alt="" width="100%">
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of
-							the card's content.</p>
-						<div class="producto-relacionado-precio">Precio:1000 BOB</div>
-						<div>
-							<div>
-								<div class="color-box" style="background: red"></div>
-								<div class="color-box" style="background: blue"></div>
-								<div class="color-box" style="background: black"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<img src="https://ae01.alicdn.com/kf/S00eb0e55c14f47e2bbf828a92ecd5515U/S6S-Mini-GPS-Drones-150g-Drone-4K-Profesional-HD-Dual-Camera-5G-WIFI-FPV-Brushless-Folding.jpg_Q90.jpg_.webp"
-							alt="" width="100%">
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of
-							the card's content.</p>
-						<div class="producto-relacionado-precio">Precio:1000 BOB</div>
-						<div>
-							<div>
-								<div class="color-box" style="background: red"></div>
-								<div class="color-box" style="background: blue"></div>
-								<div class="color-box" style="background: black"></div>
+								<div v-for="color in producto.colores" :key="color" class="color-box"
+									:style="{background: color}"></div>
 							</div>
 						</div>
 					</div>
@@ -122,67 +54,38 @@
 			</div>
 		</div>
 	</div>
-
-	<footer style="background-color: gray;">
-
-	</footer>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-	name: 'Practica2',
-	props: {
-		msg: String
+	name: 'ProductsList',
+	data() {
+		return {
+			products: [],
+			contador: 1,
+			deshabilitado: false
+		}
+	},
+	mounted() {
+		axios.get('http://localhost:3000/Productos')
+			.then(response => this.products = response.data)
+			.catch(error => console.log(error))
+	},
+	methods: {
+		aumentar() {
+			this.contador++
+		},
+		disminuir() {
+			if (this.contador > 0) {
+				this.contador--
+			}
+		},
+	},
+	computed: {
+		changeStyle() {
+			return this.deshabilitado < 1
+		}
 	}
 }
 </script>
-
-<style>
-.color-box {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	margin: 7px;
-	display: inline-block;
-}
-
-.clic {
-	cursor: pointer;
-}
-
-.quantity button {
-	border-radius: 50%;
-	display: inline-block;
-	width: 30px;
-}
-
-.quantity div {
-	text-align: center;
-	min-width: 30px;
-	display: inline-block;
-	font-weight: bold;
-}
-
-.buy-box {
-	margin: 20px;
-}
-
-footer {
-
-	text-align: center;
-	padding: 30px 10px;
-	margin-top: 50px;
-	min-height: 100px;
-}
-
-.container {
-	margin-top: 50px;
-}
-
-.producto-relacionado-precio {
-	background: orangered;
-	color: white;
-	text-align: center;
-	padding: 10px;
-}
-</style>

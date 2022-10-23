@@ -1,4 +1,14 @@
 {
+    "configuracionPagina": {
+        "marca": "MegaDron",
+        "menuColor": "lightblue",
+        "footerColor": "slategrey",
+        "precioEstilos": "background: orangered; color:white; font-weight:bold",
+        "menus": [
+            { "etiqueta": "Inicio", "url": "?" },
+            { "etiqueta": "Tienda", "url": "?" }
+        ]
+    },
     "Productos": [
         {
             "id": 1,
